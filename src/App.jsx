@@ -44,6 +44,20 @@ function App() {
   */
   const addTask = () => {
     // START EDITING
+    if (title.trim()){
+      const newTask = {
+        id: uuidv4(),
+        title: title,
+        description: description,
+        completed: false, // Task should start as NOT COMPLETED
+        dueDate: dueDate,
+      };
+
+      setTasks((prevTasks) => [...prevTasks, newTask]); //append new task 
+      setTitle(""); //reset input fields
+      setDescription("");
+      setDueDate("");
+    }
     // END EDITING
   };
 
