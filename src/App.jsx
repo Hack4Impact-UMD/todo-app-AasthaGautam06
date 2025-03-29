@@ -75,6 +75,11 @@ function App() {
   */
   const toggleCompletion = (id) => {
     // START EDITING
+    setTasks((prevTasks) => {
+      prevTasks.map((task =>
+        task.id === id ? {...task, completed: !task.completed} : task
+      ));
+    });
     // END EDITING
   };
   
