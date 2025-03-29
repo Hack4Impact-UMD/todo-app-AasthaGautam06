@@ -116,14 +116,20 @@ function App() {
         <TextField
           required
           label="Title"
+          value= {title}
+          onChange = {(e) => setTitle(e.target.value)}
         />
         <TextField
           label="Description"
+          value = {description}
+          onChange = {(e) => setDescription(e.target.value)}
         />
         <TextField
           label="Due Date"
           type="date"
           InputLabelProps={{ shrink: true }}
+          value = {dueDate}
+          onChange = {(e) => setDueDate(e.target.value)}
         />
         <Button variant="contained">
           Add Task
