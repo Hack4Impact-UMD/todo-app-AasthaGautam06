@@ -116,6 +116,11 @@ function App() {
   */
   const calculateProgress = () => {
     // START EDITING
+    if (tasks.length === 0) return 0; // Avoid division by zero
+
+    const completedTaskCount = tasks.filter((task) => task.completed).length;
+  
+    return (completedTaskCount / tasks.length) * 100;
     // END EDITING
   };
 
@@ -150,7 +155,7 @@ function App() {
           value = {dueDate}
           onChange = {(e) => setDueDate(e.target.value)}
         />
-        <Button variant="contained">
+        <Button variant="contained" onClick={addTask}>
           Add Task
         </Button>
       </div>
@@ -165,6 +170,7 @@ function App() {
       />
       <LinearProgress
         variant="determinate"
+        value = {calculateProgress()}
         sx={{ width: "100%", height: 10, borderRadius: 5, marginBottom: 2 }}
       />
       <TaskTable 
